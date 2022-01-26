@@ -51,7 +51,7 @@ impl LineRange {
 
                 new_range.upper = if first_byte == Some(b'+') {
                     let more_lines = &line_numbers[1][1..]
-                        .parse()
+                        .parse::<usize>()
                         .map_err(|_| "Invalid character after +")?;
                     new_range.lower + more_lines
                 } else if first_byte == Some(b'-') {
